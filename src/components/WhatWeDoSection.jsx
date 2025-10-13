@@ -103,7 +103,7 @@ const WhatWeDoSection = () => (
     
     <motion.div
       variants={containerVariants}
-      className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+      className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center lg:px-16"
     >
       {services.map((service, i) => (
         <motion.div

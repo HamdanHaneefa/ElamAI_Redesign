@@ -23,12 +23,9 @@ import {
 import Logo from '../assets/Logo.png'
 
 const Navbar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // Keep only necessary states
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [autoHideTimeout, setAutoHideTimeout] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,22 +34,16 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       const heroHeight = document.getElementById('hero-section')?.offsetHeight || 600;
-      setScrolled(currentY > 20);
       if (currentY < heroHeight) {
         setShowNavbar(true);
-        setLastScrollY(currentY);
-        if (autoHideTimeout) clearTimeout(autoHideTimeout);
         return;
       }
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (currentY < lastScrollY) {
             setShowNavbar(true);
-            if (autoHideTimeout) clearTimeout(autoHideTimeout);
-            setAutoHideTimeout(setTimeout(() => setShowNavbar(false), 3500)); // Increased timeout
           } else if (currentY > lastScrollY) {
             setShowNavbar(false);
-            if (autoHideTimeout) clearTimeout(autoHideTimeout);
           }
           setLastScrollY(currentY);
           ticking = false;
@@ -63,9 +54,8 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (autoHideTimeout) clearTimeout(autoHideTimeout);
     };
-  }, [lastScrollY, autoHideTimeout]);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== '/') {
@@ -82,7 +72,6 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    setActiveDropdown(null);
     setIsMobileMenuOpen(false);
   };
 
@@ -140,18 +129,8 @@ const Navbar = () => {
     }
   ];
 
-  const handleDropdownToggle = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-  };
-
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const handleMainNavClick = (item) => {
-    if (item.sectionId) {
-      scrollToSection(item.sectionId);
-    }
   };
 
   return (
@@ -168,123 +147,52 @@ const Navbar = () => {
         animate={{ y: showNavbar ? 0 : -100 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-1"> {/* Decreased pt-3 and pb-1 for less vertical space */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-1">
           <div className="flex items-center justify-between h-20">
+            {/* Logo with increased size */}
             <motion.div
-              className="flex items-center mt-1" // Decreased mt-1 for logo
+              className="flex items-center mt-1"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Link
-                to="/"
-                className="flex items-center pl-4"
-                onClick={() => {
-                  setActiveDropdown(null);
-                  setIsMobileMenuOpen(false);
-                }}
-                style={{ cursor: "pointer" }}
-              >
+              <Link to="/" className="flex items-center pl-4">
                 <img
                   src={Logo}
                   alt="Elam AI Logo"
-                  className="h-8 w-auto"
-                  style={{ maxHeight: 32 }}
+                  className="h-10 w-auto sm:h-12" // Increased from h-8 to h-10 and added responsive size
+                  style={{ maxHeight: 48 }} // Increased from 32 to 48
                 />
               </Link>
             </motion.div>
 
+            {/* Right side navigation items */}
             <motion.div
-              className="hidden md:flex items-center space-x-1 mt-1" // Decreased mt-1 for nav items
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {navItems.map((item, index) => (
-                <div key={item.name} className="relative group"
-                  onMouseEnter={() => setActiveDropdown(index)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <motion.button
-                    // Remove onClick for desktop dropdown
-                    className="flex items-center px-5 py-3 text-lg text-gray-700 hover:text-gray-900 transition-all duration-200 rounded-lg hover:bg-gray-100 group font-semibold mt-1"
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="font-semibold tracking-wide text-lg">
-                      {item.name}
-                    </span>
-                    <motion.div
-                      animate={{ rotate: activeDropdown === index ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="ml-2 h-5 w-5" />
-                    </motion.div>
-                  </motion.button>
-
-                  <AnimatePresence>
-                    {activeDropdown === index && (
-                      <motion.div
-                        className="absolute top-full left-0 mt-2 w-64 bg-white backdrop-blur-xl rounded-xl border border-gray-200 shadow-2xl"
-                        onMouseLeave={() => setActiveDropdown(null)}
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="p-2">
-                          {item.items.map((subItem, subIndex) => {
-                            const IconComponent = subItem.icon;
-                            return (
-                              <motion.div key={subItem.name}>
-                                <Link
-                                  to={subItem.path}
-                                  className="w-full flex items-center px-4 py-3 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 group font-light"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 mr-3 group-hover:bg-gray-200 transition-colors duration-200">
-                                    <IconComponent className="h-4 w-4" />
-                                  </div>
-                                  <span className="font-light leading-relaxed">
-                                    {subItem.name}
-                                  </span>
-                                </Link>
-                              </motion.div>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              className="hidden md:flex items-center mt-1" // Decreased mt-1 for CTA button
+              className="hidden md:flex items-center space-x-6"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-            <motion.div
-  className="hidden md:flex items-center"
-  initial={{ opacity: 0, x: 20 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.6, delay: 0.3 }}
->
-  <Link to="/about/contact">
-    <motion.button
-      className="inline-flex items-center space-x-2 bg-black text-white px-5 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <span>Speak to us</span>
-      <ArrowRight className="w-4 h-4" />
-    </motion.button>
-  </Link>
-</motion.div>
+              <Link to="/about/company" className="text-gray-900 hover:text-gray-600 transition-colors duration-200">
+                ABOUT
+              </Link>
+              
+              {/* Vertical line separator */}
+              <div className="h-6 w-px bg-gray-300"></div>
+              
+              <Link to="/about/contact">
+                <motion.button
+                  className="inline-flex items-center space-x-2 bg-black text-white px-5 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>CONTACT US</span>
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </Link>
             </motion.div>
 
+            {/* Mobile menu button */}
             <div className="md:hidden">
               <motion.button
                 onClick={handleMobileMenuToggle}
@@ -321,25 +229,7 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div
-              className="absolute inset-0 bg-gray-900/50 backdrop-blur-sm"
-              onClick={handleMobileMenuToggle}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Menu */}
+      {/* Mobile menu - modify to only show About and Contact */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -356,20 +246,12 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
-                <Link
-                  to="/"
-                  className="flex items-center text-gray-900 font-light text-xl tracking-tight pl-4" // Added pl-4 for left padding
-                  onClick={() => {
-                    setActiveDropdown(null);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  style={{ cursor: "pointer" }}
-                >
+                <Link to="/" className="flex items-center text-gray-900 font-light text-xl tracking-tight pl-4">
                   <img
                     src={Logo}
                     alt="Elam AI Logo"
-                    className="h-8 w-auto"
-                    style={{ maxHeight: 32 }}
+                    className="h-10 w-auto" // Increased from h-8 to h-10
+                    style={{ maxHeight: 40 }} // Increased from 32 to 40
                   />
                 </Link>
                 <motion.button
@@ -396,64 +278,79 @@ const Navbar = () => {
                 >
                   <span className="font-medium tracking-wide">Home</span>
                 </Link>
-                {navItems.map((item, index) => (
-                  <div key={item.name}>
-                    <motion.button
-                      onClick={() => {
-                        handleDropdownToggle(index);
-                        // Don't redirect on mobile, only toggle dropdown
-                      }}
-                      className="w-full flex items-center justify-between px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
-                      whileHover={{ x: 4 }}
-                      whileTap={{ scale: 0.98 }}
+                <div>
+                  <motion.button
+                    onClick={() => {
+                      // Only toggle dropdown for mobile
+                    }}
+                    className="w-full flex items-center justify-between px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="font-medium tracking-wide">
+                      About
+                    </span>
+                    <motion.div
+                      animate={{ rotate: 0 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <span className="font-medium tracking-wide">
-                        {item.name}
-                      </span>
-                      <motion.div
-                        animate={{ rotate: activeDropdown === index ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown className="h-4 w-4" />
-                      </motion.div>
-                    </motion.button>
+                      <ChevronDown className="h-4 w-4" />
+                    </motion.div>
+                  </motion.button>
 
-                    <AnimatePresence>
-                      {activeDropdown === index && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="pl-4 space-y-1 mt-2">
-                            {item.items.map((subItem, subIndex) => {
-                              const IconComponent = subItem.icon;
-                              return (
-                                <motion.div key={subItem.name}>
-                                  <Link
-                                    to={subItem.path}
-                                    className="w-full flex items-center px-4 py-3 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 font-light"
-                                    onClick={() => {
-                                      setActiveDropdown(null);
-                                      setIsMobileMenuOpen(false);
-                                    }}
-                                  >
-                                    <IconComponent className="h-4 w-4 mr-3 opacity-60" />
-                                    <span className="font-light leading-relaxed">
-                                      {subItem.name}
-                                    </span>
-                                  </Link>
-                                </motion.div>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
+                  <AnimatePresence>
+                    {false && ( // Always false, so dropdown is hidden
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-4 space-y-1 mt-2">
+                          {/* Sub-items for About - currently none */}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div>
+                  <motion.button
+                    onClick={() => {
+                      // Only toggle dropdown for mobile
+                    }}
+                    className="w-full flex items-center justify-between px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="font-medium tracking-wide">
+                      Contact
+                    </span>
+                    <motion.div
+                      animate={{ rotate: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-4 w-4" />
+                    </motion.div>
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {false && ( // Always false, so dropdown is hidden
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-4 space-y-1 mt-2">
+                          {/* Sub-items for Contact - currently none */}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.div>
 
               <motion.div

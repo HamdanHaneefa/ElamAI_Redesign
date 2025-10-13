@@ -20,6 +20,64 @@ const BlurText = ({ text, className, onAnimationComplete, ...props }) => {
   );
 };
 
+const TypewriterEffect = () => {
+  const phrases = [
+    "Intelligent AI Solutions",
+    "Workflow Automation",
+    "Predictive Analytics",
+    "Custom AI Development"
+  ];
+
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typingSpeed = 100; // Speed for typing
+    const deletingSpeed = 50; // Speed for deleting
+    const pauseDuration = 2000; // How long to pause at complete phrase
+
+    const handleTyping = () => {
+      const currentPhrase = phrases[currentPhraseIndex];
+
+      if (!isDeleting) {
+        // Typing
+        if (currentText !== currentPhrase) {
+          const nextChar = currentPhrase.slice(0, currentText.length + 1);
+          setCurrentText(nextChar);
+        } else {
+          // Pause before starting to delete
+          setTimeout(() => setIsDeleting(true), pauseDuration);
+          return;
+        }
+      } else {
+        // Deleting
+        if (currentText === "") {
+          setIsDeleting(false);
+          setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        } else {
+          const nextText = currentPhrase.slice(0, currentText.length - 1);
+          setCurrentText(nextText);
+        }
+      }
+    };
+
+    const timer = setTimeout(
+      handleTyping,
+      isDeleting ? deletingSpeed : typingSpeed
+    );
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentPhraseIndex]);
+
+  return (
+    <span className="text-blue-600 block min-h-[1.5em] sm:min-h-[1.8em] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl"> {/* Updated styles */}
+      {currentText}
+      <span className="animate-blink">|</span>
+    </span>
+  );
+};
+
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
@@ -132,51 +190,65 @@ const HeroSection = () => {
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col">
         <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-start">
           {/* Hero Content */}
-          <div className="pt-48 sm:pt-44 lg:pt-52 pb-24"> {/* More top padding on mobile only, desktop unchanged */}
-            <div className="text-center max-w-4xl mx-auto flex flex-col items-center justify-center">
-              {/* Headline */}
-              <motion.div className="mb-6 w-full flex justify-center" variants={itemVariants}>
+          <div className="pt-36 sm:pt-40 lg:pt-48 pb-12 sm:pb-20">
+            <div className="text-center max-w-4xl mx-auto flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+              {/* Headline - Mobile optimized */}
+              <motion.div 
+                className="w-full mb-4 sm:mb-10 px-3 sm:px-6" 
+                variants={itemVariants}
+              >
                 <BlurText
-                  text={<>Transform Your Business with <span className="text-blue-600">Intelligent AI Solutions</span></>}
-                  onAnimationComplete={handleAnimationComplete}
-                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-900 leading-tight tracking-tight text-center"
+                  text={
+                    <div className="flex flex-col items-start sm:items-center text-left sm:text-center">
+                      <span className="block text-2xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-2 sm:mb-0">
+                        Transform Your Business with
+                      </span>
+                      <TypewriterEffect />
+                    </div>
+                  }
+                  className="font-light text-gray-900 tracking-tight"
                 />
               </motion.div>
 
-              {/* Subtitle */}
-              <motion.div className="mb-6" variants={itemVariants}>
+              {/* Subtitle - Mobile optimized */}
+              <motion.div 
+                className="mb-4 sm:mb-8 px-3 sm:px-6" 
+                variants={itemVariants}
+              >
                 <BlurText
                   text="Elam AI helps Indian and international businesses accelerate growth through AI-powered strategy development, workflow automation, predictive analytics, and intelligent content creation."
-                  className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light"
+                  className="text-[15px] sm:text-lg lg:text-xl xl:text-2xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-light text-left sm:text-center"
                 />
               </motion.div>
 
-              {/* Location Badge */}
-              <motion.div className="mb-8" variants={itemVariants}>
-                <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full">
-                  <span className="text-sm text-gray-700 font-light">
+              {/* Location Badge - Mobile optimized */}
+              <motion.div 
+                className="mb-6 sm:mb-12 px-3 sm:px-6" 
+                variants={itemVariants}
+              >
+                <div className="inline-block text-left sm:text-center w-full sm:w-auto">
+                  <span className="text-[13px] sm:text-base text-gray-700 font-light">
                     Based in Perumanna, Kerala, India - Serving Global Clients
                   </span>
                 </div>
               </motion.div>
 
-              {/* CTA Buttons */}
-              <motion.div className="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center" variants={itemVariants}>
+              {/* CTA Button - Mobile optimized */}
+              <motion.div 
+                className="w-full px-3 sm:px-6" 
+                variants={itemVariants}
+              >
                 <motion.div
                   variants={itemVariants}
                   whileHover={{
                     scale: 1.02,
-                    y: -2,
                     transition: { duration: 0.2 },
                   }}
-                  whileTap={{
-                    scale: 0.98,
-                    transition: { duration: 0.1 },
-                  }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Link
                     to="/about/contact"
-                    className="inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl group hover:bg-gray-800"
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-medium transition-all duration-300 text-[15px] sm:text-base shadow-lg hover:shadow-xl group hover:bg-gray-800"
                   >
                     <span>Book Free Consultation</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -190,12 +262,59 @@ const HeroSection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .animate-blink {
+          animation: blink 1s infinite;
+        }
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+        /* Improved responsive styles */
+        @media (max-width: 640px) {
+          .text-blue-600 {
+            line-height: 1.3;
+            font-size: 28px; /* Decreased for better fit */
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 8px;
+          }
+          
+          /* Headline text size for mobile */
+          .text-2xl, .text-3xl {
+            font-size: 26px; /* Decreased for better fit */
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 8px;
+          }
+          
+          /* Increase container padding */
+          .px-3 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+          }
+          
+          /* Add container max-width */
+          .max-w-4xl {
+            max-width: 100%;
+            padding: 0 0.5rem;
+          }
+          
+          /* Adjust top padding for mobile */
+          .pt-36 {
+            padding-top: 9rem; /* Increased top padding */
+          }
         }
       `}</style>
     </motion.div>

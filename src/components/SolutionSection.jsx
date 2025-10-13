@@ -50,7 +50,7 @@ const SolutionsSection = () => {
         { icon: Settings, text: "Technology strategy & architecture planning" },
         { icon: FileText, text: "Implementation roadmap development" }
       ],
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&auto=format"
+      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 2,
@@ -64,7 +64,7 @@ const SolutionsSection = () => {
         { icon: Zap, text: "Accelerate task completion times" },
         { icon: TrendingUp, text: "Scale operations efficiently" }
       ],
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop&auto=format"
+      image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 3,
@@ -78,7 +78,7 @@ const SolutionsSection = () => {
         { icon: Cpu, text: "Model training, tuning & optimization" },
         { icon: Cloud, text: "Deployment & integration support" }
       ],
-      image: "https://images.unsplash.com/photo-1581093588400-4f3c8e6f3f3f?w=400&h=300&fit=crop&auto=format"
+      image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 4,
@@ -92,7 +92,7 @@ const SolutionsSection = () => {
         { icon: TrendingUp, text: "Predictive analytics & forecasting" },
         { icon: Share2, text: "Collaboration & sharing setup" }
       ],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format"
+      image: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 5,
@@ -106,7 +106,7 @@ const SolutionsSection = () => {
         { icon: Phone, text: "Voice agents & phone automation" },
         { icon: Languages, text: "Multilingual support" }
       ],
-      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=300&fit=crop&auto=format"
+      image: "https://images.pexels.com/photos/8438922/pexels-photo-8438922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     }
   ];
 
