@@ -73,7 +73,7 @@ const itemVariants = {
 
 const WhatWeDoSection = () => (
   <motion.section
-    className="w-full bg-gray-50 py-12 sm:py-16 lg:py-20 flex flex-col items-center px-4"
+    className="w-full bg-gray-50 pt-8 pb-12 sm:pt-12 sm:pb-16 lg:py-20 flex flex-col items-center px-4 min-h-[220px] relative"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
@@ -84,26 +84,29 @@ const WhatWeDoSection = () => (
         What We Do
       </span>
     </motion.div>
-    
-    <motion.h2
-      variants={itemVariants}
-      className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans"
-    >
-      Comprehensive AI Solutions
-      <br className="hidden sm:block" />
-      For Modern Business
-    </motion.h2>
-    
-    <motion.p
-      variants={itemVariants}
-      className="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base font-light"
-    >
-      Empowering businesses with cutting-edge AI technology
-    </motion.p>
-    
+
+    <div className="w-full max-w-3xl px-4 box-border">
+      <motion.h2
+        variants={itemVariants}
+        className="text-gray-900 font-light text-center mb-4 tracking-tight font-sans whitespace-normal break-words w-full max-w-full px-0"
+        style={{ fontSize: 'clamp(1.5rem,5vw,3rem)', lineHeight: '1.3' }}
+      >
+        Comprehensive AI Solutions
+        <br className="hidden sm:block" />
+        For Modern Business
+      </motion.h2>
+
+      <motion.p
+        variants={itemVariants}
+        className="text-gray-600 text-center mb-12 mx-auto text-base font-light px-2"
+      >
+        Empowering businesses with cutting-edge AI technology
+      </motion.p>
+    </div>
+
     <motion.div
       variants={containerVariants}
-      className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center lg:px-16"
+      className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center px-2 sm:px-6 lg:px-16"
     >
       {services.map((service, i) => (
         <motion.div

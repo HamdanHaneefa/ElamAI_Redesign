@@ -30,28 +30,24 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    let ticking = false;
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      const heroHeight = document.getElementById('hero-section')?.offsetHeight || 600;
-      if (currentY < heroHeight) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling DOWN - hide navbar
+        setShowNavbar(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling UP - show navbar
         setShowNavbar(true);
-        return;
       }
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (currentY < lastScrollY) {
-            setShowNavbar(true);
-          } else if (currentY > lastScrollY) {
-            setShowNavbar(false);
-          }
-          setLastScrollY(currentY);
-          ticking = false;
-        });
-        ticking = true;
-      }
+
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -136,16 +132,13 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans block ${showNavbar ? '' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans`}
         style={{ 
-          background: (typeof window !== 'undefined' && window.scrollY < (document.getElementById('hero-section')?.offsetHeight || 600)) 
-            ? 'none' 
-            : 'rgba(255,255,255,0.95)',
-          boxShadow: 'none' 
+          background: 'transparent'
         }}
-        initial={{ y: -100 }}
+        initial={{ y: 0 }}
         animate={{ y: showNavbar ? 0 : -100 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-1">
           <div className="flex items-center justify-between h-20">
@@ -173,14 +166,14 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link to="/about/company" className="text-gray-900 hover:text-gray-600 transition-colors duration-200">
+              <Link to="/company" className="text-gray-900 hover:text-gray-600 transition-colors duration-200">
                 ABOUT
               </Link>
               
               {/* Vertical line separator */}
               <div className="h-6 w-px bg-gray-300"></div>
               
-              <Link to="/about/contact">
+              <Link to="/contact">
                 <motion.button
                   className="inline-flex items-center space-x-2 bg-black text-white px-5 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
@@ -233,13 +226,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-xl border-b border-gray-200 md:hidden font-sans"
+            className="fixed inset-0 z-50 bg-white backdrop-blur-xl md:hidden font-sans overflow-y-auto"
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="p-6 pt-20">
+            <div className="min-h-screen p-6 pt-20 flex flex-col">
               <motion.div
                 className="flex items-center justify-between mb-8"
                 initial={{ opacity: 0, y: -20 }}
@@ -278,79 +271,24 @@ const Navbar = () => {
                 >
                   <span className="font-medium tracking-wide">Home</span>
                 </Link>
-                <div>
-                  <motion.button
-                    onClick={() => {
-                      // Only toggle dropdown for mobile
-                    }}
-                    className="w-full flex items-center justify-between px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="font-medium tracking-wide">
-                      About
-                    </span>
-                    <motion.div
-                      animate={{ rotate: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="h-4 w-4" />
-                    </motion.div>
-                  </motion.button>
+                
+                {/* About Link for Mobile */}
+                <Link
+                  to="/company"
+                  className="w-full flex items-center px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span className="font-medium tracking-wide">About</span>
+                </Link>
 
-                  <AnimatePresence>
-                    {false && ( // Always false, so dropdown is hidden
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pl-4 space-y-1 mt-2">
-                          {/* Sub-items for About - currently none */}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <div>
-                  <motion.button
-                    onClick={() => {
-                      // Only toggle dropdown for mobile
-                    }}
-                    className="w-full flex items-center justify-between px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="font-medium tracking-wide">
-                      Contact
-                    </span>
-                    <motion.div
-                      animate={{ rotate: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="h-4 w-4" />
-                    </motion.div>
-                  </motion.button>
-
-                  <AnimatePresence>
-                    {false && ( // Always false, so dropdown is hidden
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pl-4 space-y-1 mt-2">
-                          {/* Sub-items for Contact - currently none */}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                {/* Contact Link for Mobile */}
+                <Link
+                  to="/contact"
+                  className="w-full flex items-center px-4 py-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200 font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <span className="font-medium tracking-wide">Contact</span>
+                </Link>
               </motion.div>
 
               <motion.div
@@ -359,18 +297,16 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <motion.button
-                  className="inline-flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    scrollToSection("contact");
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  <span>Speak to us</span>
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <motion.button
+                    className="inline-flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span>Speak to us</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.button>
+                </Link>
               </motion.div>
 
               <motion.div

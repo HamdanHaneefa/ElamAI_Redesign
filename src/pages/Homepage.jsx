@@ -10,21 +10,18 @@ import WhyChooseSection from '../components/WhyChooseUs';
 
 const Homepage = () => {
   return (
-  <div className="min-h-screen bg-white">
+    <div className="w-full overflow-x-hidden bg-white">
       <HeroSection />
       <WhatWeDoSection />
       <div id="ai-agents">
-        <WhyChooseSection/>
+        <WhyChooseSection />
       </div>
-      {/* <div id="ai-agents">
-        <ServicesSection />
-        </div> */}
       <div id="solutions">
         <SolutionsSection />
       </div>
-        <ProcessSection />
+      <ProcessSection />
       <div id="platform">
-        <MultiAgentSection/>
+        <MultiAgentSection />
       </div>
       <div id="blog">
         <BlogSection />

@@ -68,7 +68,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 font-sans pt-24 pb-10 px-4">
+    <footer className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 font-sans pt-24 pb-10 px-4">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-4xl sm:text-5xl font-light mb-4">Let's Build Your AI Future Together</h2>
         <p className="text-lg sm:text-xl text-gray-700 font-light mb-8 max-w-2xl">
@@ -80,7 +80,7 @@ const Footer = () => {
           className="mb-8"
         >
           <Link
-            to="/about/contact"
+            to="/contact"
             className="inline-flex items-center gap-2 bg-black text-white px-7 py-3 rounded-xl font-semibold text-lg shadow-lg hover:bg-gray-800 transition-all duration-300"
           >
             Contact Us

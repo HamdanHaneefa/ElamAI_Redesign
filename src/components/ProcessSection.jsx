@@ -27,9 +27,28 @@ const itemVariants = {
 const ProcessSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  const handleTouch = (index) => {
+  const handleTouch = (index, e) => {
+    e.stopPropagation();
     setSelectedIndex(selectedIndex === index ? null : index);
   };
+
+  const handleClickOutside = () => {
+    setSelectedIndex(null);
+  };
+
+  React.useEffect(() => {
+    const handleClick = (e) => {
+      handleClickOutside();
+    };
+    
+    document.addEventListener('click', handleClick);
+    document.addEventListener('touchend', handleClick);
+    
+    return () => {
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('touchend', handleClick);
+    };
+  }, []);
 
   const processes = [
     {
@@ -72,11 +91,10 @@ const ProcessSection = () => {
 
           <motion.h2
             variants={itemVariants}
-            className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans"
+            className="text-gray-900 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans px-4"
           >
-            Our Proven Process
-            <br className="hidden sm:block" />
-            For AI Implementation
+            <span className="block sm:inline">Our Proven Process</span>{" "}
+            <span className="block sm:inline">For AI Implementation</span>
           </motion.h2>
 
           <motion.p
@@ -95,34 +113,60 @@ const ProcessSection = () => {
             <motion.div
               key={process.phase}
               variants={itemVariants}
-              className="group"
-              onClick={() => handleTouch(index)}
+              className="group cursor-pointer touch-manipulation"
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+              onTouchStart={(e) => {
+                e.stopPropagation();
+                handleTouch(index, e);
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                handleTouch(index, e);
+              }}
             >
-              <div className="relative h-full bg-white border border-gray-200 rounded-2xl p-4 sm:p-8 transition-all duration-500 ease-in-out overflow-hidden hover:border-transparent hover:shadow-2xl">
+              <div className="relative h-full bg-white border border-gray-200 rounded-2xl p-4 sm:p-8 transition-all duration-500 ease-out overflow-hidden hover:border-transparent hover:shadow-2xl hover:scale-105">
                 {/* Gradient background overlay */}
                 <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-600/95 via-indigo-700/95 to-purple-800/95 opacity-0 transition-all duration-500 ease-in-out
-                    ${selectedIndex === index ? 'opacity-100' : 'group-hover:opacity-100'}`}
+                  className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black transition-opacity duration-500 ease-out
+                    ${selectedIndex === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                 />
                 
                 {/* Content with z-index */}
                 <div className="relative z-10">
                   <div className="mb-2 sm:mb-4">
-                    <span className={`text-xs sm:text-sm font-medium transition-all duration-500 ease-in-out
-                      ${selectedIndex === index ? 'text-white' : ''} 
-                      ${!selectedIndex && 'group-hover:text-white'}`}>
-                      {process.phase}
+                    <span 
+                      className="text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors duration-500 ease-out"
+                      style={{
+                        color: selectedIndex === index ? '#ffffff' : undefined
+                      }}
+                    >
+                      <span className={selectedIndex === index ? '' : 'text-gray-700 group-hover:text-white transition-colors duration-500'}>
+                        {process.phase}
+                      </span>
                     </span>
                   </div>
-                  <h3 className={`text-base sm:text-xl font-semibold mb-2 sm:mb-3 transition-all duration-500 ease-in-out
-                    ${selectedIndex === index ? 'text-white' : ''} 
-                    ${!selectedIndex && 'group-hover:text-white'}`}>
-                    {process.title}
+                  <h3 
+                    className="text-base sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-500 ease-out"
+                    style={{
+                      color: selectedIndex === index ? '#ffffff' : undefined
+                    }}
+                  >
+                    <span className={selectedIndex === index ? '' : 'text-gray-900 group-hover:text-white transition-colors duration-500'}>
+                      {process.title}
+                    </span>
                   </h3>
-                  <p className={`text-sm sm:text-base font-light transition-all duration-500 ease-in-out
-                    ${selectedIndex === index ? 'text-white' : ''} 
-                    ${!selectedIndex && 'group-hover:text-white'}`}>
-                    {process.description}
+                  <p 
+                    className="text-sm sm:text-base font-normal leading-relaxed transition-colors duration-500 ease-out"
+                    style={{
+                      color: selectedIndex === index ? '#ffffff' : undefined
+                    }}
+                  >
+                    <span className={selectedIndex === index ? '' : 'text-gray-700 group-hover:text-white transition-colors duration-500'}>
+                      {process.description}
+                    </span>
                   </p>
                 </div>
 

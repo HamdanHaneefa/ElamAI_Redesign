@@ -71,11 +71,10 @@ const WhyChooseSection = () => {
       
       <motion.h2
         variants={itemVariants}
-        className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans"
+        className="text-gray-900 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans px-4"
       >
-        Your Complete AI
-        <br className="hidden sm:block" />
-        Transformation Partner
+        <span className="block sm:inline">Your Complete AI</span>{" "}
+        <span className="block sm:inline">Transformation Partner</span>
       </motion.h2>
       
       <motion.p

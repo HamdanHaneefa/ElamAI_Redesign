@@ -480,22 +480,22 @@ const SolutionsSection = () => {
       </div>
 
       {/* Add bottom CTA section */}
-      <motion.div 
-        className="bg-gray-50 py-16"
-        variants={itemVariants}
-      >
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4">
-            Not Sure Which Service You Need?
-          </h3>
-          <p className="text-gray-600 mb-8">
-            Schedule a free consultation and we'll help you identify the best AI solutions for your business goals.
-          </p>
-          <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors">
-            Schedule Free Consultation
-          </button>
-        </div>
-      </motion.div>
+         <motion.div 
+  className="bg-gray-50 py-16"
+  variants={itemVariants}
+>
+  <div className="max-w-4xl mx-auto text-center px-6">
+    <h3 className="text-xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 leading-tight">
+      Not Sure Which Service You Need?
+    </h3>
+    <p className="text-gray-600 mb-8 text-sm sm:text-base leading-relaxed">
+      Schedule a free consultation and we'll help you identify the best AI solutions for your business goals.
+    </p>
+    <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors">
+      Schedule Free Consultation
+    </button>
+  </div>
+</motion.div>
     </motion.div>
   );
 };

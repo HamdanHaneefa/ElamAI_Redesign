@@ -58,10 +58,10 @@ function App() {
             <Routes>
               {/* Active routes */}
               <Route path="/" element={<Homepage />} />
-              <Route path="/about/company" element={<Company />} />
-              <Route path="/about/contact" element={<Contact />} />
+              <Route path="/company" element={<Company />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
-            </Routes>
+            </Routes>               
 
             <Footer />
             <FloatingWhatsApp phoneNumber="+919747419297" message="Hi! I came from your website." />
