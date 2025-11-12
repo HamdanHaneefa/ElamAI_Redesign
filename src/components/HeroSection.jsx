@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle, MessageSquare, Mail, Settings } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
 
 // Mock BlurText component since it's not available
 const BlurText = ({ text, className, onAnimationComplete, ...props }) => {
@@ -71,7 +69,7 @@ const TypewriterEffect = () => {
   }, [currentText, isDeleting, currentPhraseIndex]);
 
   return (
-    <span className="text-blue-600 block min-h-[1.5em] sm:min-h-[1.8em] text-[32px] sm:text-4xl lg:text-5xl xl:text-6xl"> {/* Updated styles */}
+    <span className="text-blue-600 block min-h-[1.2em] sm:min-h-[1.44em] text-[34px] sm:text-[32px] lg:text-[42px] xl:text-[52px] whitespace-nowrap">
       {currentText}
       <span className="animate-blink">|</span>
     </span>
@@ -173,16 +171,16 @@ const HeroSection = () => {
         <div className="max-w-6xl mx-auto w-full">
           {/* Hero Content */}
           <div className="py-8 sm:py-12">
-            <div className="text-center max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-6">
-              {/* Headline - Mobile optimized */}
+            <div className="text-center max-w-4xl mx-auto flex flex-col items-center justify-center space-y-5 sm:space-y-8">
+              {/* Headline - Mobile optimized with larger font */}
               <motion.div 
-                className="w-full mb-3 sm:mb-6 px-3 sm:px-6" 
+                className="w-full mb-4 sm:mb-6 px-3 sm:px-6" 
                 variants={itemVariants}
               >
                 <BlurText
                   text={
                     <div className="flex flex-col items-center text-center">
-                      <span className="block text-[28px] sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-2 sm:mb-0">
+                      <span className="block text-[30px] sm:text-[32px] lg:text-[42px] xl:text-[52px] leading-tight mb-2 sm:mb-0">
                         Transform Your Business with
                       </span>
                       <TypewriterEffect />
@@ -192,30 +190,18 @@ const HeroSection = () => {
                 />
               </motion.div>
 
-              {/* Subtitle - Mobile optimized */}
+              {/* Subtitle - Mobile optimized with larger font */}
               <motion.div 
-                className="mb-3 sm:mb-6 px-3 sm:px-6" 
+                className="mb-5 sm:mb-8 px-3 sm:px-6" 
                 variants={itemVariants}
               >
                 <BlurText
                   text="Elam AI helps Indian and international businesses accelerate growth through AI-powered strategy development, workflow automation, predictive analytics, and intelligent content creation."
-                  className="text-[17px] sm:text-lg lg:text-xl xl:text-2xl text-gray-600 leading-relaxed max-w-2xl mx-auto font-light text-center"
+                  className="text-[17px] sm:text-[16px] lg:text-[18px] xl:text-[20px] text-gray-600 leading-relaxed max-w-2xl mx-auto font-light text-center"
                 />
               </motion.div>
 
-              {/* Location Badge - Mobile optimized */}
-              <motion.div 
-                className="mb-4 sm:mb-8 px-3 sm:px-6" 
-                variants={itemVariants}
-              >
-                <div className="inline-block text-center w-full sm:w-auto">
-                  <span className="text-[15px] sm:text-base text-gray-700 font-light">
-                    Based in Perumanna, Kerala, India - Serving Global Clients
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* CTA Button - Mobile optimized */}
+              {/* CTA Button - Mobile optimized with larger font */}
               <motion.div 
                 className="w-full px-3 sm:px-6" 
                 variants={itemVariants}
@@ -228,13 +214,13 @@ const HeroSection = () => {
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Link
-                    to="/about/contact"
-                    className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-medium transition-all duration-300 text-[17px] sm:text-base shadow-lg hover:shadow-xl group hover:bg-gray-800"
+                  <a
+                    href="#contact"
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-medium transition-all duration-300 text-[16px] sm:text-[14px] shadow-lg hover:shadow-xl group hover:bg-gray-800"
                   >
                     <span>Book Free Consultation</span>
                     <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  </Link>
+                  </a>
                 </motion.div>
               </motion.div>
             </div>
@@ -258,17 +244,19 @@ const HeroSection = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        /* Improved responsive styles */
+        /* Enhanced responsive styles with larger mobile fonts */
         @media (max-width: 640px) {
           .text-blue-600 {
             line-height: 1.3;
-            font-size: 28px;
+            font-size: 34px;
             text-align: center;
+            white-space: nowrap;
+            overflow: visible;
           }
           
-          /* Headline text size for mobile */
+          /* Headline text size for mobile - increased */
           .text-2xl, .text-3xl {
-            font-size: 26px;
+            font-size: 30px;
             line-height: 1.2;
             text-align: center;
           }

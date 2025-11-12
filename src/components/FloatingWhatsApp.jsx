@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import WhatsAppButton from './WhatsAppButton';
 
 const SHOW_ROUTES = ['/', '/about/contact'];
-const AUTO_HIDE_MS = 1000; // time visible after showing
+const AUTO_HIDE_MS = 4500; // Increased from 1000ms to 3000ms (3 seconds)
 const SCROLL_THRESHOLD = 60; // px to consider a scroll action
 
 export default function FloatingWhatsApp({ phoneNumber, message }) {
@@ -60,4 +60,4 @@ export default function FloatingWhatsApp({ phoneNumber, message }) {
       }}
     />
   );
-} 
+}
