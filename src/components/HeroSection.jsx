@@ -215,7 +215,7 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-medium transition-all duration-300 text-[16px] sm:text-[14px] shadow-lg hover:shadow-xl group hover:bg-gray-800"
                   >
                     <span>Book Free Consultation</span>
