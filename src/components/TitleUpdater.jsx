@@ -6,11 +6,11 @@ const TitleUpdater = () => {
   const location = useLocation();
 
   useEffect(() => {
-    let pageTitle = "Elam AI - AI Automation Agency"; // Default title
+    let pageTitle = "Elam AI - Growth Operations & Revenue Transformation Consulting"; // Default title
 
     switch (location.pathname) {
       case "/":
-        pageTitle = "Elam AI - AI Automation Agency";
+        pageTitle = "Elam AI - Growth Operations & Revenue Transformation Consulting";
         break;
       
       // Platform pages

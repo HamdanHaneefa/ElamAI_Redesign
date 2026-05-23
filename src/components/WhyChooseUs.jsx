@@ -4,28 +4,28 @@ import { Sparkles, Zap, Globe, TrendingUp } from "lucide-react";
 
 const benefits = [
   {
-    icon: Sparkles,
+    icon: TrendingUp,
     number: "01",
-    title: "Complete Solution",
-    subtitle: "End-to-end AI transformation",
+    title: "Revenue Growth",
+    subtitle: "Accelerate sales and optimize revenue",
   },
   {
     icon: Zap,
     number: "02",
-    title: "Proven Stack",
-    subtitle: "N8N, AI platforms, analytics",
+    title: "Operational Efficiency",
+    subtitle: "Eliminate revenue leaks and reduce costs",
+  },
+  {
+    icon: Sparkles,
+    number: "03",
+    title: "Better Visibility",
+    subtitle: "Become discoverable online & in AI",
   },
   {
     icon: Globe,
-    number: "03",
-    title: "Global + Local",
-    subtitle: "Worldwide with cultural intelligence",
-  },
-  {
-    icon: TrendingUp,
     number: "04",
-    title: "ROI-Focused",
-    subtitle: "Measurable business value",
+    title: "Scalable Processes",
+    subtitle: "Build systems that grow with you",
   },
 ];
 
@@ -73,7 +73,7 @@ const WhyChooseSection = () => {
         variants={itemVariants}
         className="text-gray-900 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans px-4"
       >
-        <span className="block sm:inline">Your Complete AI</span>{" "}
+        <span className="block sm:inline">Your Growth &</span>{" "}
         <span className="block sm:inline">Transformation Partner</span>
       </motion.h2>
       
@@ -81,7 +81,7 @@ const WhyChooseSection = () => {
         variants={itemVariants}
         className="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base font-light"
       >
-        Building the future of intelligent business solutions
+        Focusing on measurable business outcomes and sustainable growth
       </motion.p>
 
       {/* Grid Layout */}

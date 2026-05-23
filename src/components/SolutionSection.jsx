@@ -27,7 +27,9 @@ import {
   ArrowRight, 
   Zap,
   Bot,
-  Cog // Use Cog instead of Workflow since Workflow isn't available in lucide-react
+  Cog,
+  MapPin,
+  Mail
 } from 'lucide-react';
 
 const SolutionsSection = () => {
@@ -41,72 +43,114 @@ const SolutionsSection = () => {
     {
       id: 1,
       category: "Strategy",
-      title: "AI Business Strategy Development",
-      description: "Transform your business with data-driven AI strategy development, technology selection, and implementation roadmaps designed for measurable ROI.",
-      icon: Lightbulb,
+      title: "Revenue Growth Strategy",
+      description: "Helping businesses identify opportunities, improve conversion performance, and build scalable revenue systems.",
+      icon: Target,
       actions: [
-        { icon: BarChart2, text: "AI readiness assessment" },
-        { icon: Target, text: "Opportunity identification & prioritization" },
-        { icon: Settings, text: "Technology strategy & architecture planning" },
-        { icon: FileText, text: "Implementation roadmap development" }
+        { icon: BarChart2, text: "Revenue optimization" },
+        { icon: Target, text: "Sales process improvement" },
+        { icon: Settings, text: "Customer journey optimization" },
+        { icon: TrendingUp, text: "Business growth planning" }
       ],
       image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 2,
-      category: "Automation",
-      title: "Workflow Automation",
-      description: "Eliminate repetitive tasks and accelerate business processes with N8N-powered automation workflows that integrate seamlessly with your existing systems.",
-      icon: Cog, // Changed from Workflow to Cog
+      category: "Visibility",
+      title: "Digital Visibility Management",
+      description: "Helping businesses become discoverable wherever customers search, increasing customer acquisition.",
+      icon: Search,
       actions: [
-        { icon: Clock, text: "Reduce manual work by up to 80%" },
-        { icon: Shield, text: "Eliminate human errors in routine processes" },
-        { icon: Zap, text: "Accelerate task completion times" },
-        { icon: TrendingUp, text: "Scale operations efficiently" }
+        { icon: Globe, text: "Search visibility" },
+        { icon: MapPin, text: "Local business presence" },
+        { icon: Shield, text: "Online reputation & directory management" },
+        { icon: TrendingUp, text: "Search optimization" }
       ],
       image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 3,
-      category: "AI Development",
-      title: "Custom AI Model Development",
-      description: "Leverage our expertise to build, train, and deploy custom AI models tailored to your unique business challenges and objectives.",
-      icon: Bot,
+      category: "Operations",
+      title: "Business Process Optimization",
+      description: "Helping businesses eliminate inefficiencies and operational bottlenecks to reduce revenue leaks and improve productivity.",
+      icon: Settings,
       actions: [
-        { icon: Code, text: "Custom model design & architecture" },
-        { icon: Database, text: "Data collection, cleaning & labeling" },
-        { icon: Cpu, text: "Model training, tuning & optimization" },
-        { icon: Cloud, text: "Deployment & integration support" }
+        { icon: Search, text: "Process audits" },
+        { icon: Cog, text: "Workflow redesign" },
+        { icon: Clock, text: "Operational efficiency & cost reduction" },
+        { icon: TrendingUp, text: "Resource optimization" }
       ],
       image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 4,
-      category: "Analytics",
-      title: "AI-Powered Analytics & BI",
-      description: "Transform data into actionable insights with advanced analytics solutions, including predictive modeling, data visualization, and automated reporting.",
-      icon: BarChart2,
+      category: "Automation",
+      title: "Workflow Automation",
+      description: "Automating repetitive business operations to reduce operational cost and improve efficiency.",
+      icon: Cog,
       actions: [
-        { icon: Search, text: "Data source identification & integration" },
-        { icon: ChartPie, text: "Custom dashboard & report development" },
-        { icon: TrendingUp, text: "Predictive analytics & forecasting" },
-        { icon: Share2, text: "Collaboration & sharing setup" }
+        { icon: MessageSquare, text: "Lead management automation" },
+        { icon: Mail, text: "Customer communication automation" },
+        { icon: FileText, text: "Reporting & internal workflow automation" },
+        { icon: Database, text: "CRM & systems integration" }
       ],
       image: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       id: 5,
-      category: "Conversational AI",
-      title: "Chatbot & Voice Agent Development",
-      description: "Deploy sophisticated conversational AI including WhatsApp automation, website chatbots, and multilingual voice agents for 24/7 customer support.",
-      icon: MessageSquare,
+      category: "Development",
+      title: "Custom Business Applications",
+      description: "Developing systems tailored to unique business operations to replace disconnected workflows.",
+      icon: Code,
       actions: [
-        { icon: MessageCircle, text: "WhatsApp business automation" },
-        { icon: Globe, text: "Website AI chatbots" },
-        { icon: Phone, text: "Voice agents & phone automation" },
-        { icon: Languages, text: "Multilingual support" }
+        { icon: Database, text: "Internal business platforms" },
+        { icon: Settings, text: "Management & tracking systems" },
+        { icon: ChartPie, text: "Custom dashboards" },
+        { icon: Cloud, text: "Data centralization & operational tools" }
       ],
       image: "https://images.pexels.com/photos/8438922/pexels-photo-8438922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      id: 6,
+      category: "AI",
+      title: "AI Visibility Optimization",
+      description: "Position businesses to be discoverable within AI-powered search platforms as search behavior shifts.",
+      icon: Bot,
+      actions: [
+        { icon: Search, text: "AI search optimization" },
+        { icon: MessageSquare, text: "ChatGPT & Gemini visibility" },
+        { icon: Globe, text: "Perplexity visibility" },
+        { icon: FileText, text: "Knowledge & structured content strategy" }
+      ],
+      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      id: 7,
+      category: "Marketing",
+      title: "Performance Marketing",
+      description: "Driving measurable growth through data-driven campaigns, generating qualified opportunities and ROI.",
+      icon: BarChart2,
+      actions: [
+        { icon: Target, text: "Google Ads & Meta Ads" },
+        { icon: TrendingUp, text: "Lead generation" },
+        { icon: Search, text: "Conversion tracking & optimization" },
+        { icon: ChartPie, text: "Performance reporting" }
+      ],
+      image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      id: 8,
+      category: "Brand",
+      title: "Brand Strategy & Positioning",
+      description: "Helping businesses create stronger market differentiation, build trust and strengthen market presence.",
+      icon: Lightbulb,
+      actions: [
+        { icon: Globe, text: "Brand positioning" },
+        { icon: MessageCircle, text: "Messaging frameworks" },
+        { icon: Search, text: "Market perception & competitive differentiation" },
+        { icon: Target, text: "Strategic communication" }
+      ],
+      image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     }
   ];
 
@@ -213,7 +257,7 @@ const SolutionsSection = () => {
               className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-900 mb-6 leading-tight tracking-tight"
               variants={itemVariants}
             >
-              Comprehensive AI Services
+              Comprehensive Growth Services
               <br />
               for Every Business Need
             </motion.h2>
@@ -222,8 +266,8 @@ const SolutionsSection = () => {
               className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-10"
               variants={itemVariants}
             >
-              From strategic planning to implementation, Elam AI delivers end-to-end AI solutions 
-              that transform operations and drive growth.
+              From strategic planning to implementation, Elam delivers end-to-end growth solutions 
+              that transform operations and drive results.
             </motion.p>
           </div>
 
@@ -391,7 +435,7 @@ const SolutionsSection = () => {
                       <div className="flex items-center gap-2">
                         <Zap className="w-4 h-4 text-gray-700" />
                         <span className="text-gray-900 font-light text-sm">
-                          Agentic Actions (
+                          Key Focus Areas (
                           {solutions[activeIndex].actions.length})
                         </span>
                       </div>
@@ -481,18 +525,18 @@ const SolutionsSection = () => {
 
       {/* Add bottom CTA section */}
          <motion.div 
-  className="bg-gray-50 py-16"
+  className="bg-transparent py-16"
   variants={itemVariants}
 >
   <div className="max-w-4xl mx-auto text-center px-6">
     <h3 className="text-xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 leading-tight">
-      Not Sure Which Service You Need?
+      Ready to Unlock Sustainable Business Growth?
     </h3>
     <p className="text-gray-600 mb-8 text-sm sm:text-base leading-relaxed">
-      Schedule a free consultation and we'll help you identify the best AI solutions for your business goals.
+      Discover how strategy, automation, visibility management, and operational excellence can accelerate your business performance.
     </p>
     <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors">
-      Schedule Free Consultation
+      Schedule a Consultation
     </button>
   </div>
 </motion.div>

@@ -20,10 +20,10 @@ const BlurText = ({ text, className, onAnimationComplete, ...props }) => {
 
 const TypewriterEffect = () => {
   const phrases = [
-    "Intelligent AI Solutions",
+    "Strategy & Operations",
     "Workflow Automation",
-    "Predictive Analytics",
-    "Custom AI Development"
+    "Digital Visibility",
+    "Business Transformation"
   ];
 
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -142,6 +142,10 @@ const HeroSection = () => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center bg-cover opacity-100" 
+          style={{ backgroundImage: "url('/hero.svg')" }}
+        />
         {!shouldReduceMotion && (
           <>
             <motion.div
@@ -181,7 +185,7 @@ const HeroSection = () => {
                   text={
                     <div className="flex flex-col items-center text-center">
                       <span className="block text-[30px] sm:text-[32px] lg:text-[42px] xl:text-[52px] leading-tight mb-2 sm:mb-0">
-                        Transform Your Business with
+                        Accelerate Growth Through
                       </span>
                       <TypewriterEffect />
                     </div>
@@ -196,7 +200,7 @@ const HeroSection = () => {
                 variants={itemVariants}
               >
                 <BlurText
-                  text="Elam AI helps Indian and international businesses accelerate growth through AI-powered strategy development, workflow automation, predictive analytics, and intelligent content creation."
+                  text="We help businesses increase visibility, streamline operations, reduce costs, and unlock sustainable growth through technology-enabled transformation."
                   className="text-[17px] sm:text-[16px] lg:text-[18px] xl:text-[20px] text-gray-600 leading-relaxed max-w-2xl mx-auto font-light text-center"
                 />
               </motion.div>
@@ -218,7 +222,7 @@ const HeroSection = () => {
                     href="/contact"
                     className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-medium transition-all duration-300 text-[16px] sm:text-[14px] shadow-lg hover:shadow-xl group hover:bg-gray-800"
                   >
-                    <span>Book Free Consultation</span>
+                    <span>Book a Growth Consultation</span>
                     <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                   </a>
                 </motion.div>

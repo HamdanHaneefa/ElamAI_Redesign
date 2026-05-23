@@ -8,8 +8,8 @@ const Company = () => {
   const values = [
     {
       icon: Target,
-      title: 'Innovation First',
-      description: 'We push the boundaries of AI technology to create solutions that transform businesses.'
+      title: 'Strategic Innovation',
+      description: 'We develop strategic solutions that transform businesses and unlock new revenue streams.'
     },
     {
       icon: Heart,
@@ -18,13 +18,13 @@ const Company = () => {
     },
     {
       icon: Globe,
-      title: 'Global Impact',
-      description: 'We believe AI should be accessible to businesses of all sizes, everywhere in the world.'
+      title: 'Long-term Scalability',
+      description: 'We build scalable systems designed for sustainable growth and operational efficiency.'
     },
     {
       icon: Eye,
       title: 'Transparency',
-      description: 'We build trust through clear communication, ethical AI practices, and honest partnerships.'
+      description: 'We build trust through clear communication, measurable results, and honest partnerships.'
     }
   ];
 
@@ -39,8 +39,8 @@ const Company = () => {
   return (
     <PageLayout
       title="Our Company"
-      subtitle="Building the Future of AI"
-      description="Founded with a mission to make AI accessible to every business, Elam AI is transforming how organizations work, communicate, and grow through intelligent automation."
+      subtitle="Building the Future of Business Growth"
+      description="Founded with a mission to accelerate business performance, Elam is transforming how organizations work and grow through strategic consulting, workflow automation, and operational excellence."
       badge="About"
     >
       {/* Increased top spacing - more breathing room from navbar/header */}
@@ -55,9 +55,9 @@ const Company = () => {
           >
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Our Mission</h3>
             <p className="text-gray-700 leading-relaxed font-light">
-              To democratize artificial intelligence by providing powerful, easy-to-use AI agents 
-              that help businesses of all sizes automate processes, enhance customer experiences, 
-              and accelerate growth.
+              To accelerate business performance by providing strategic consulting, intelligent automation, 
+              and custom systems that help organizations optimize operations, enhance customer experiences, 
+              and scale revenue.
             </p>
           </motion.div>
           <motion.div 
@@ -68,9 +68,8 @@ const Company = () => {
           >
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Our Vision</h3>
             <p className="text-gray-700 leading-relaxed font-light">
-              A world where every business, regardless of size or technical expertise, can harness 
-              the power of AI to solve complex problems, improve efficiency, and create better 
-              experiences for their customers.
+              A world where every business can achieve sustainable growth, streamline operations, 
+              and build a lasting competitive advantage through customized transformation strategies.
             </p>
           </motion.div>
         </div>
@@ -111,8 +110,7 @@ const Company = () => {
             Join Us on Our Mission
           </h3>
           <p className="text-gray-700 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-            Whether you're looking to transform your business with AI or want to be part of 
-            our team, we'd love to hear from you.
+            Whether you're looking to transform your business operations or want to explore new avenues for growth, we'd love to hear from you.
           </p>
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/about/contact">

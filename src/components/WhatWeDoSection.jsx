@@ -1,50 +1,56 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Brain, 
+  Target, 
+  Search, 
+  Settings, 
   Workflow, 
+  Layers, 
   Bot, 
-  Database, 
-  TrendingUp, 
-  Video, 
-  MessageSquare 
+  BarChart, 
+  Flag 
 } from "lucide-react";
 
 const services = [
   {
-    icon: <Brain size={28} />,
-    title: "AI Business Strategy",
-    desc: "Strategic consultation & implementation planning for AI transformation.",
+    icon: <Target size={28} />,
+    title: "Revenue Growth",
+    desc: "Identify opportunities, improve conversion, build scalable systems.",
+  },
+  {
+    icon: <Search size={28} />,
+    title: "Digital Visibility",
+    desc: "Become discoverable wherever customers search online.",
+  },
+  {
+    icon: <Settings size={28} />,
+    title: "Process Optimization",
+    desc: "Eliminate inefficiencies, bottlenecks, and reduce revenue leaks.",
   },
   {
     icon: <Workflow size={28} />,
     title: "Workflow Automation",
-    desc: "Intelligent workflows that eliminate manual tasks & accelerate processes.",
+    desc: "Automate repetitive tasks to reduce cost & improve efficiency.",
+  },
+  {
+    icon: <Layers size={28} />,
+    title: "Custom Applications",
+    desc: "Tailored business platforms, trackers, and management systems.",
   },
   {
     icon: <Bot size={28} />,
-    title: "AI Agent Development",
-    desc: "24/7 customer service agents, sales bots & task automation assistants.",
+    title: "AI Visibility",
+    desc: "Position your business for ChatGPT, Gemini, and Perplexity.",
   },
   {
-    icon: <Database size={28} />,
-    title: "Custom SaaS Solutions",
-    desc: "Scalable ERPs, CRMs & business systems with intelligent automation.",
+    icon: <BarChart size={28} />,
+    title: "Performance Marketing",
+    desc: "Data-driven campaigns generating qualified opportunities.",
   },
   {
-    icon: <TrendingUp size={28} />,
-    title: "Predictive Analytics",
-    desc: "Data intelligence for forecasting, optimization & risk detection.",
-  },
-  {
-    icon: <Video size={28} />,
-    title: "AI Content Creation",
-    desc: "High-converting video ads, social media & marketing materials.",
-  },
-  {
-    icon: <MessageSquare size={28} />,
-    title: "Chatbot & Voice Agents",
-    desc: "WhatsApp automation, website chatbots & multilingual voice agents.",
+    icon: <Flag size={28} />,
+    title: "Brand Strategy",
+    desc: "Create strong market differentiation and build trust.",
   },
 ];
 
@@ -73,7 +79,7 @@ const itemVariants = {
 
 const WhatWeDoSection = () => (
   <motion.section
-    className="w-full bg-gray-50 pt-8 pb-12 sm:pt-12 sm:pb-16 lg:py-20 flex flex-col items-center px-4 min-h-[220px] relative"
+    className="w-full bg-transparent pt-8 pb-12 sm:pt-12 sm:pb-16 lg:py-20 flex flex-col items-center px-4 min-h-[220px] relative"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
@@ -91,7 +97,7 @@ const WhatWeDoSection = () => (
         className="text-gray-900 font-light text-center mb-4 tracking-tight font-sans whitespace-normal break-words w-full max-w-full px-0"
         style={{ fontSize: 'clamp(1.5rem,5vw,3rem)', lineHeight: '1.3' }}
       >
-        Comprehensive AI Solutions
+        Comprehensive Growth Solutions
         <br className="hidden sm:block" />
         For Modern Business
       </motion.h2>
@@ -100,7 +106,7 @@ const WhatWeDoSection = () => (
         variants={itemVariants}
         className="text-gray-600 text-center mb-12 mx-auto text-base font-light px-2"
       >
-        Empowering businesses with cutting-edge AI technology
+        Empowering businesses with sustainable growth and operational efficiency
       </motion.p>
     </div>
 

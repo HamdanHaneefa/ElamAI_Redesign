@@ -4,30 +4,30 @@ import { motion } from 'framer-motion';
 const blogPosts = [
         {
                 id: 1,
-                title: 'How AI Agents Are Transforming Modern Business',
+                title: 'How Strategic Consulting is Transforming Modern Business',
                 date: 'Sep 1, 2025',
                 image:
                         'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=600&q=80',
                 summary:
-                        'Explore the real-world impact of AI agents on productivity, customer experience, and business growth across industries.',
+                        'Explore the real-world impact of workflow optimization on productivity, customer experience, and business growth across industries.',
         },
         {
                 id: 2,
-                title: '5 Ways to Automate Your Workflow with AI',
+                title: '5 Ways to Automate Your Business Workflows',
                 date: 'Aug 18, 2025',
                 image:
                         'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&w=600&q=80',
                 summary:
-                        'Discover practical strategies to streamline your operations and save time using the latest AI automation tools.',
+                        'Discover practical strategies to streamline your operations and save time using modern automation tools.',
         },
         {
                 id: 3,
-                title: 'The Future of Customer Support: AI-Driven Solutions',
+                title: 'The Future of Customer Support: Scalable Solutions',
                 date: 'Jul 30, 2025',
                 image:
                         'https://images.pexels.com/photos/1181353/pexels-photo-1181353.jpeg?auto=compress&w=600&q=80',
                 summary:
-                        'See how AI is revolutionizing customer support, enabling instant responses and personalized service at scale.',
+                        'See how scalable operations are revolutionizing customer support, enabling fast responses and personalized service.',
         },
 ];
 
@@ -40,7 +40,7 @@ const BlogSection = () => {
                                                 Discover Insights from Our Blog
                                         </h2>
                                         <p className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto font-sans">
-                                                Stay ahead with the latest trends, tips, and stories in AI automation,
+                                                Stay ahead with the latest trends, tips, and stories in workflow automation,
                                                 business transformation, and digital innovation.
                                         </p>
                                 </div>

@@ -152,7 +152,7 @@ const Navbar = () => {
               <Link to="/" className="flex items-center pl-4">
                 <img
                   src={Logo}
-                  alt="Elam AI Logo"
+                  alt="Elam Logo"
                   className="h-10 w-auto sm:h-12" // Increased from h-8 to h-10 and added responsive size
                   style={{ maxHeight: 48 }} // Increased from 32 to 48
                 />
@@ -242,7 +242,7 @@ const Navbar = () => {
                 <Link to="/" className="flex items-center text-gray-900 font-light text-xl tracking-tight pl-4">
                   <img
                     src={Logo}
-                    alt="Elam AI Logo"
+                    alt="Elam Logo"
                     className="h-10 w-auto" // Increased from h-8 to h-10
                     style={{ maxHeight: 40 }} // Increased from 32 to 40
                   />
@@ -316,8 +316,8 @@ const Navbar = () => {
                 transition={{ duration: 0.4, delay: 0.4 }}
               >
                 <p className="text-gray-700 text-base leading-relaxed font-light">
-                  With Elam AI, build an AI workforce that automates tasks
-                  efficiently. Deploy intelligent agents to streamline
+                  With Elam, build scalable systems that accelerate growth and 
+                  efficiency. Deploy strategic solutions to streamline 
                   operations and improve performance across your business today!
                 </p>
               </motion.div>

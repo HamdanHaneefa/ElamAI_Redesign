@@ -68,11 +68,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 font-sans pt-24 pb-10 px-4">
+    <footer className="relative bg-transparent text-gray-900 font-sans pt-24 pb-10 px-4">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-        <h2 className="text-4xl sm:text-5xl font-light mb-4">Let's Build Your AI Future Together</h2>
+        <h2 className="text-4xl sm:text-5xl font-light mb-4">Ready to Unlock Sustainable Business Growth?</h2>
         <p className="text-lg sm:text-xl text-gray-700 font-light mb-8 max-w-2xl">
-          Partner with Elam AI to unlock the power of automation, intelligent agents, and next-generation business solutions. Ready to take the next step?
+          Discover how strategy, automation, visibility management, and operational excellence can accelerate your business performance.
         </p>
         <motion.div
           whileHover={{ scale: 1.04, y: -2 }}
@@ -83,7 +83,7 @@ const Footer = () => {
             to="/contact"
             className="inline-flex items-center gap-2 bg-black text-white px-7 py-3 rounded-xl font-semibold text-lg shadow-lg hover:bg-gray-800 transition-all duration-300"
           >
-            Contact Us
+            Schedule a Consultation
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>

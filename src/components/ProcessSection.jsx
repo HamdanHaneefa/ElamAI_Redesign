@@ -1,185 +1,157 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Search, Target, Settings, TrendingUp } from 'lucide-react';
 
 const ProcessSection = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
 
-  const handleTouch = (index, e) => {
-    e.stopPropagation();
-    setSelectedIndex(selectedIndex === index ? null : index);
-  };
-
-  const handleClickOutside = () => {
-    setSelectedIndex(null);
-  };
-
-  React.useEffect(() => {
-    const handleClick = (e) => {
-      handleClickOutside();
-    };
-    
-    document.addEventListener('click', handleClick);
-    document.addEventListener('touchend', handleClick);
-    
-    return () => {
-      document.removeEventListener('click', handleClick);
-      document.removeEventListener('touchend', handleClick);
-    };
-  }, []);
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const processes = [
     {
       phase: 'Phase 1',
-      title: 'Discovery & Alignment',
-      description: 'We uncover opportunities and align goals to build the right AI roadmap.'
+      title: 'Discover',
+      description: 'Understand business challenges, opportunities, and operational gaps.',
+      icon: Search
     },
     {
       phase: 'Phase 2',
-      title: 'System Design & Validation',
-      description: 'We map workflows and design the blueprint that powers your success.'
+      title: 'Strategize',
+      description: 'Develop a customized transformation roadmap.',
+      icon: Target
     },
     {
       phase: 'Phase 3',
-      title: 'Implementation & Integration',
-      description: 'We execute the build and integrate AI seamlessly into operations.'
+      title: 'Implement',
+      description: 'Deploy systems, automation, marketing initiatives, and process improvements.',
+      icon: Settings
     },
     {
       phase: 'Phase 4',
-      title: 'Continued Partnership',
-      description: 'We monitor, optimize, and evolve your AI as your business grows.'
+      title: 'Scale',
+      description: 'Measure performance and continuously optimize growth.',
+      icon: TrendingUp
     }
   ];
 
   return (
-    <motion.section
-      className="py-20 bg-gray-50/30"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <motion.div variants={itemVariants} className="mb-4">
+    <section className="py-20 bg-transparent font-sans overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-4"
+          >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-sm font-medium text-gray-900 shadow-sm border border-gray-200">
               Our Process
             </span>
           </motion.div>
 
           <motion.h2
-            variants={itemVariants}
-            className="text-gray-900 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-center mb-2 leading-tight tracking-tight font-sans px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-light text-center mb-2 leading-tight tracking-tight px-4"
           >
             <span className="block sm:inline">Our Proven Process</span>{" "}
-            <span className="block sm:inline">For AI Implementation</span>
+            <span className="block sm:inline">For Business Transformation</span>
           </motion.h2>
 
           <motion.p
-            variants={itemVariants}
-            className="text-gray-600 text-center mb-12 max-w-xl mx-auto text-base font-light"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-600 text-center max-w-xl mx-auto text-base sm:text-lg font-light"
           >
-            A systematic approach to transforming your business operations with AI
+            A systematic approach to transforming your business operations and accelerating growth
           </motion.p>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-        >
-          {processes.map((process, index) => (
-            <motion.div
-              key={process.phase}
-              variants={itemVariants}
-              className="group cursor-pointer touch-manipulation"
-              onMouseDown={(e) => {
-                e.stopPropagation();
-              }}
-              onTouchStart={(e) => {
-                e.stopPropagation();
-                handleTouch(index, e);
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                handleTouch(index, e);
-              }}
-            >
-              <div className="relative h-full bg-white border border-gray-200 rounded-2xl p-4 sm:p-8 transition-all duration-500 ease-out overflow-hidden hover:border-transparent hover:shadow-2xl hover:scale-105">
-                {/* Gradient background overlay */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black transition-opacity duration-500 ease-out
-                    ${selectedIndex === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
-                />
-                
-                {/* Content with z-index */}
-                <div className="relative z-10">
-                  <div className="mb-2 sm:mb-4">
-                    <span 
-                      className="text-xs sm:text-sm font-semibold uppercase tracking-wider transition-colors duration-500 ease-out"
-                      style={{
-                        color: selectedIndex === index ? '#ffffff' : undefined
-                      }}
-                    >
-                      <span className={selectedIndex === index ? '' : 'text-gray-700 group-hover:text-white transition-colors duration-500'}>
-                        {process.phase}
-                      </span>
-                    </span>
-                  </div>
-                  <h3 
-                    className="text-base sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-500 ease-out"
-                    style={{
-                      color: selectedIndex === index ? '#ffffff' : undefined
-                    }}
-                  >
-                    <span className={selectedIndex === index ? '' : 'text-gray-900 group-hover:text-white transition-colors duration-500'}>
-                      {process.title}
-                    </span>
-                  </h3>
-                  <p 
-                    className="text-sm sm:text-base font-normal leading-relaxed transition-colors duration-500 ease-out"
-                    style={{
-                      color: selectedIndex === index ? '#ffffff' : undefined
-                    }}
-                  >
-                    <span className={selectedIndex === index ? '' : 'text-gray-700 group-hover:text-white transition-colors duration-500'}>
-                      {process.description}
-                    </span>
-                  </p>
-                </div>
+        <div className="relative" ref={containerRef}>
+          {/* Static Background Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 -translate-x-1/2 rounded-full" />
+          
+          {/* Animated Progress Line */}
+          <motion.div 
+            className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-900 -translate-x-1/2 rounded-full origin-top z-10"
+            style={{ scaleY }}
+          />
 
-                {/* Shine effect */}
-                <div className={`absolute inset-0 opacity-0 transition-all duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transform
-                  ${selectedIndex === index ? 'opacity-20 translate-x-full' : 'group-hover:opacity-20 group-hover:translate-x-full'}`}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          <div className="space-y-12 md:space-y-24">
+            {processes.map((process, index) => {
+              const isEven = index % 2 === 0;
+              const Icon = process.icon;
+
+              return (
+                <div key={process.phase} className="relative flex items-center md:justify-between w-full">
+                  {/* Center Node */}
+                  <div className="absolute left-8 md:left-1/2 w-12 h-12 -translate-x-1/2 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center z-20 shadow-sm group hover:border-gray-900 transition-colors duration-300">
+                    <Icon className="w-5 h-5 text-gray-500 group-hover:text-gray-900 transition-colors duration-300" />
+                  </div>
+
+                  {/* Desktop Layout - Left / Right */}
+                  <div className={`hidden md:flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
+                    <motion.div 
+                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className={`w-5/12 ${isEven ? 'pr-12 text-right' : 'pl-12 text-left'}`}
+                    >
+                      <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 transition-all duration-300 group hover-glow-animated relative z-10">
+                        <span className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-2 block">{process.phase}</span>
+                        <h3 className="text-2xl font-light text-gray-900 mb-3">{process.title}</h3>
+                        <p className="text-gray-600 font-light leading-relaxed">{process.description}</p>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Mobile Layout - Always Right */}
+                  <div className="flex md:hidden w-full justify-end pl-24">
+                    <motion.div 
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="w-full"
+                    >
+                      <div className="bg-white p-5 rounded-2xl shadow-md border border-gray-100 hover-glow-animated">
+                        <span className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-1 block">{process.phase}</span>
+                        <h3 className="text-xl font-light text-gray-900 mb-2">{process.title}</h3>
+                        <p className="text-gray-600 font-light text-sm leading-relaxed">{process.description}</p>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </motion.section>
+      <style jsx>{`
+        @keyframes shadowPulse {
+          0% { box-shadow: 0 0 20px rgba(57,255,20,0.3); }
+          50% { box-shadow: 0 0 40px rgba(57,255,20,0.7); }
+          100% { box-shadow: 0 0 20px rgba(57,255,20,0.3); }
+        }
+        .hover-glow-animated {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-glow-animated:hover {
+          animation: shadowPulse 2s infinite ease-in-out;
+          transform: translateY(-4px);
+        }
+      `}</style>
+    </section>
   );
 };
 

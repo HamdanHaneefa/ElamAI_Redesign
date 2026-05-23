@@ -64,24 +64,23 @@ const MultiAgentSection = () => {
               className="inline-block px-4 py-2 bg-gray-100 backdrop-blur-sm rounded-full text-gray-700 text-sm font-light mb-4"
               variants={itemVariants}
             >
-              Multi-Agent
+              AI Search Visibility
             </motion.div>
 
             <motion.h2
               className="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-4 leading-tight tracking-tight"
               variants={itemVariants}
             >
-              Empowering Autonomous
+              Become Discoverable in
               <br />
-              Agents to Work Together
+              the AI Search Era
             </motion.h2>
 
             <motion.p
               className="text-sm sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
               variants={itemVariants}
             >
-              Multiple specialized AI agents working in harmony to automate your
-              entire workflow from data processing to intelligent actions.
+              Businesses are increasingly discovered through AI assistants. We optimize your business to ensure you remain visible across ChatGPT, Gemini, Claude, and Perplexity.
             </motion.p>
           </div>
 
@@ -111,10 +110,10 @@ const MultiAgentSection = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-medium text-sm">
-                          Data Input
+                          Business Knowledge
                         </h4>
                         <p className="text-gray-600 text-xs">
-                          Email, CRM, Analytics
+                          Website, Content, Data
                         </p>
                       </div>
                     </div>
@@ -156,10 +155,10 @@ const MultiAgentSection = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-medium text-sm">
-                          AI Processing
+                          AI Platforms
                         </h4>
                         <p className="text-gray-600 text-xs">
-                          Smart Analysis & Learning
+                          ChatGPT, Gemini, Claude
                         </p>
                       </div>
                     </div>
@@ -200,10 +199,10 @@ const MultiAgentSection = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-medium text-sm">
-                          Automated Actions
+                          Customer Discovery
                         </h4>
                         <p className="text-gray-600 text-xs">
-                          Responses, Reports, Tasks
+                          Brand Visibility & Leads
                         </p>
                       </div>
                     </div>
@@ -215,21 +214,21 @@ const MultiAgentSection = () => {
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
                       <div className="text-lg font-semibold text-gray-900">
-                        500+
+                        4+
                       </div>
-                      <div className="text-xs text-gray-600">Integrations</div>
+                      <div className="text-xs text-gray-600">AI Platforms</div>
                     </div>
                     <div>
                       <div className="text-lg font-semibold text-gray-900">
                         24/7
                       </div>
-                      <div className="text-xs text-gray-600">Automation</div>
+                      <div className="text-xs text-gray-600">Visibility</div>
                     </div>
                     <div>
                       <div className="text-lg font-semibold text-gray-900">
                         10x
                       </div>
-                      <div className="text-xs text-gray-600">Efficiency</div>
+                      <div className="text-xs text-gray-600">Reach</div>
                     </div>
                   </div>
                 </div>
@@ -260,9 +259,9 @@ const MultiAgentSection = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="text-gray-900 font-medium mb-2">Data Sources</h4>
+                  <h4 className="text-gray-900 font-medium mb-2">Business Data</h4>
                   <p className="text-gray-700 text-sm">
-                    Email, CRM, Analytics & More
+                    Website, Content & Structured Data
                   </p>
                 </motion.div>
 
@@ -312,10 +311,10 @@ const MultiAgentSection = () => {
                     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
                   </div>
                   <h3 className="text-gray-900 font-medium text-lg mb-2">
-                    AI Hub
+                    AI Platforms
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    Smart Processing Engine
+                    ChatGPT, Gemini, Claude
                   </p>
 
                   <div className="flex justify-center space-x-2 mt-4">
@@ -381,9 +380,9 @@ const MultiAgentSection = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="text-gray-900 font-medium mb-2">Smart Actions</h4>
+                  <h4 className="text-gray-900 font-medium mb-2">Customer Acquisition</h4>
                   <p className="text-gray-700 text-sm">
-                    Responses, Reports & Tasks
+                    Visibility, Leads & Growth
                   </p>
                 </motion.div>
               </div>
@@ -395,10 +394,10 @@ const MultiAgentSection = () => {
               >
                 <div className="text-center">
                   <div className="text-3xl font-light text-gray-900 mb-2">
-                    500+
+                    4+
                   </div>
                   <div className="text-gray-600 text-sm">
-                    Platform Integrations
+                    Major AI Platforms
                   </div>
                 </div>
                 <div className="text-center">
@@ -406,13 +405,13 @@ const MultiAgentSection = () => {
                     24/7
                   </div>
                   <div className="text-gray-600 text-sm">
-                    Continuous Automation
+                    Continuous Visibility
                   </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-light text-gray-900 mb-2">10x</div>
                   <div className="text-gray-600 text-sm">
-                    Productivity Boost
+                    Reach Boost
                   </div>
                 </div>
               </motion.div>

@@ -1,70 +1,79 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BrainCog, Workflow, Bot, Layers, TrendingUp, Video, MessageSquare } from 'lucide-react';
+import { Target, Workflow, Settings, Layers, TrendingUp, Bot, BarChart, Flag, Search } from 'lucide-react';
 
 const services = [
         {
                 id: 1,
-                title: 'AI Business Strategy Development',
+                title: 'Revenue Growth Strategy',
                 description:
-                        'Strategic AI consultation and implementation planning to help your business identify opportunities, select technologies, and create roadmaps for AI transformation.',
-                icon: BrainCog,
+                        'Helping businesses identify opportunities, improve conversion performance, and build scalable revenue systems for sustainable growth.',
+                icon: Target,
                 image:
                         'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 2,
-                title: 'Workflow Automation',
+                title: 'Digital Visibility Management',
                 description:
-                        'Streamline operations with intelligent N8N-powered workflows that eliminate manual tasks, reduce errors, and accelerate business processes across all departments.',
-                icon: Workflow,
+                        'Helping businesses become discoverable wherever customers search, through local presence, directory management, and search optimization.',
+                icon: Search,
                 image:
                         'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 3,
-                title: 'AI Agent Development',
+                title: 'Business Process Optimization',
                 description:
-                        'Deploy versatile AI agents including customer service agents, sales qualification bots, appointment schedulers, and task automation assistants that work 24/7.',
-                icon: Bot,
+                        'Helping businesses eliminate inefficiencies and operational bottlenecks through process audits, workflow redesign, and cost reduction.',
+                icon: Settings,
                 image:
                         'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 4,
-                title: 'Custom SaaS Development',
+                title: 'Workflow Automation',
                 description:
-                        'Build scalable ERPs, CRMs, and business management systems with multi-tenant architecture, real-time databases, and intelligent automation features.',
-                icon: Layers,
+                        'Automating repetitive business operations including lead management, customer communication, and internal workflows to reduce cost.',
+                icon: Workflow,
                 image:
                         'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 5,
-                title: 'Predictive Analytics',
+                title: 'Custom Business Applications',
                 description:
-                        'Harness data intelligence for early warning systems, inventory optimization, demand forecasting, and business risk detection to make proactive decisions.',
-                icon: TrendingUp,
+                        'Developing systems tailored to unique business operations, replacing spreadsheets with scalable management tools and dashboards.',
+                icon: Layers,
                 image:
                         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 6,
-                title: 'AI Content Creation',
+                title: 'AI Visibility Optimization',
                 description:
-                        'Generate high-converting video ads, social media content, marketing materials, and graphical advertisements using advanced AI content generation tools.',
-                icon: Video,
+                        'Position businesses to be discoverable within AI-powered search platforms like ChatGPT, Gemini, and Perplexity through structured content strategy.',
+                icon: Bot,
                 image:
                         'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=800&q=80',
         },
         {
                 id: 7,
-                title: 'Chatbot & Voice Agent Development',
+                title: 'Performance Marketing',
                 description:
-                        'Create intelligent conversational interfaces including WhatsApp automation, website chatbots, and multilingual voice agents for customer engagement.',
-                icon: MessageSquare,
+                        'Driving measurable growth through data-driven campaigns on Google and Meta, complete with conversion tracking and performance reporting.',
+                icon: BarChart,
                 image:
                         'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80',
+        },
+        {
+                id: 8,
+                title: 'Brand Strategy & Positioning',
+                description:
+                        'Helping businesses create stronger market differentiation, build trust, and strengthen market presence through strategic communication.',
+                icon: Flag,
+                image:
+                        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
         },
 ];
 
@@ -97,10 +106,10 @@ const ServicesSection = () => {
                         <div className="max-w-6xl mx-auto">
                                 <div className="text-center mb-12">
                                         <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-900 leading-tight tracking-tight font-sans">
-                                                Comprehensive AI Solutions for Modern Business
+                                                Comprehensive Growth Solutions for Modern Business
                                         </h2>
                                         <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mt-4 font-sans">
-                                                Transform your business operations with our full suite of AI-powered services designed to accelerate growth and improve efficiency.
+                                                Transform your business operations with our full suite of strategy, automation, and visibility services designed to accelerate performance and improve efficiency.
                                         </p>
                                 </div>
                                 {/* Tabs */}
