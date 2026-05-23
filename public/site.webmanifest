@@ -1,19 +1,19 @@
 {
-  "name": "Elam AI - AI Consulting Services India",
-  "short_name": "Elam AI",
+  "name": "Elam - Growth Operations & Revenue Transformation",
+  "short_name": "Elam",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
+      "src": "/src/assets/Logo_favicon-round.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/src/assets/Logo_favicon-round.png",
       "sizes": "32x32", 
       "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/src/assets/Logo_favicon-round.png",
       "sizes": "180x180",
       "type": "image/png"
     }
