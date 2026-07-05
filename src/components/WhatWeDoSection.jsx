@@ -120,7 +120,7 @@ const WhatWeDoSection = () => (
           variants={itemVariants}
           className="flex flex-col items-center text-center group"
         >
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black flex items-center justify-center text-white mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black flex items-center justify-center text-white mb-3 sm:mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300">
             {service.icon}
           </div>
           <h3 className="text-gray-900 text-sm sm:text-base font-semibold mb-2 leading-tight">

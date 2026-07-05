@@ -113,9 +113,9 @@ const Company = () => {
             Whether you're looking to transform your business operations or want to explore new avenues for growth, we'd love to hear from you.
           </p>
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/about/contact">
+            <Link to="/contact">
               <motion.button
-                className="border border-gray-200 text-gray-900 px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-gray-100"
+                className="border border-gray-200 text-gray-900 px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-gray-100 cursor-pointer"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

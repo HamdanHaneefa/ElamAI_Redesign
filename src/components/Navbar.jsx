@@ -153,8 +153,8 @@ const Navbar = () => {
                 <img
                   src={Logo}
                   alt="Elam Logo"
-                  className="h-10 w-auto sm:h-12" // Increased from h-8 to h-10 and added responsive size
-                  style={{ maxHeight: 48 }} // Increased from 32 to 48
+                  className="h-10 w-auto sm:h-12 bg-white rounded px-2 py-1"
+                  style={{ maxHeight: 48 }}
                 />
               </Link>
             </motion.div>
@@ -175,7 +175,7 @@ const Navbar = () => {
               
               <Link to="/contact">
                 <motion.button
-                  className="inline-flex items-center space-x-2 bg-black text-white px-5 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300"
+                  className="inline-flex items-center space-x-2 bg-black text-white px-5 py-2 rounded-xl font-medium hover:bg-gray-800 transition-all duration-300 cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -243,8 +243,8 @@ const Navbar = () => {
                   <img
                     src={Logo}
                     alt="Elam Logo"
-                    className="h-10 w-auto" // Increased from h-8 to h-10
-                    style={{ maxHeight: 40 }} // Increased from 32 to 40
+                    className="h-10 w-auto bg-white rounded px-2 py-1"
+                    style={{ maxHeight: 40 }}
                   />
                 </Link>
                 <motion.button

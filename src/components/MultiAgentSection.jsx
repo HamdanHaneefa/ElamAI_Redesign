@@ -155,10 +155,10 @@ const MultiAgentSection = () => {
                       </div>
                       <div>
                         <h4 className="text-gray-900 font-medium text-sm">
-                          AI Platforms
+                          Intelligent Search
                         </h4>
                         <p className="text-gray-600 text-xs">
-                          ChatGPT, Gemini, Claude
+                          Global Algorithmic Discovery
                         </p>
                       </div>
                     </div>
@@ -216,7 +216,7 @@ const MultiAgentSection = () => {
                       <div className="text-lg font-semibold text-gray-900">
                         4+
                       </div>
-                      <div className="text-xs text-gray-600">AI Platforms</div>
+                      <div className="text-xs text-gray-600">Search Networks</div>
                     </div>
                     <div>
                       <div className="text-lg font-semibold text-gray-900">
@@ -311,10 +311,10 @@ const MultiAgentSection = () => {
                     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
                   </div>
                   <h3 className="text-gray-900 font-medium text-lg mb-2">
-                    AI Platforms
+                    Intelligent Search
                   </h3>
                   <p className="text-gray-700 text-sm">
-                    ChatGPT, Gemini, Claude
+                    Global Algorithmic Discovery
                   </p>
 
                   <div className="flex justify-center space-x-2 mt-4">
@@ -397,7 +397,7 @@ const MultiAgentSection = () => {
                     4+
                   </div>
                   <div className="text-gray-600 text-sm">
-                    Major AI Platforms
+                    Search Networks
                   </div>
                 </div>
                 <div className="text-center">

@@ -15,7 +15,6 @@ import ElamAIChatbot from './components/chat';
 // About Pages
 import Company from './pages/about/Company';
 import Contact from './pages/about/Contact';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 import AnalyticsTracker from './utils/AnalyticsTracker';
 
@@ -64,7 +63,6 @@ function App() {
             </Routes>               
 
             <Footer />
-            <FloatingWhatsApp phoneNumber="+919747419297" message="Hi! I came from your website." />
           </div>
         </SmoothScroll>
       )}

@@ -535,7 +535,7 @@ const SolutionsSection = () => {
     <p className="text-gray-600 mb-8 text-sm sm:text-base leading-relaxed">
       Discover how strategy, automation, visibility management, and operational excellence can accelerate your business performance.
     </p>
-    <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors">
+    <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors cursor-pointer">
       Schedule a Consultation
     </button>
   </div>

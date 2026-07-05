@@ -20,7 +20,7 @@ const Button = ({ className, variant = "default", size = "default", ...props }: 
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
         {
           "bg-primary text-primary-foreground shadow hover:bg-primary/90": variant === "default",
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground":
@@ -181,6 +181,7 @@ export default function ElamAIChatbot() {
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [hasShownWelcome, setHasShownWelcome] = useState(false)
+  const [isIconVisible, setIsIconVisible] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -190,6 +191,34 @@ export default function ElamAIChatbot() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+
+    const handleUserActivity = () => {
+      setIsIconVisible(true)
+      clearTimeout(timeoutId)
+      
+      timeoutId = setTimeout(() => {
+        setIsIconVisible(false)
+      }, 3000)
+    }
+
+    handleUserActivity()
+
+    window.addEventListener('mousemove', handleUserActivity)
+    window.addEventListener('touchstart', handleUserActivity)
+    window.addEventListener('keydown', handleUserActivity)
+    window.addEventListener('scroll', handleUserActivity)
+    
+    return () => {
+      window.removeEventListener('mousemove', handleUserActivity)
+      window.removeEventListener('touchstart', handleUserActivity)
+      window.removeEventListener('keydown', handleUserActivity)
+      window.removeEventListener('scroll', handleUserActivity)
+      clearTimeout(timeoutId)
+    }
+  }, [])
 
   useEffect(() => {
     if (isOpen && !hasShownWelcome) {
@@ -279,7 +308,12 @@ export default function ElamAIChatbot() {
   return (
     <>
       {/* Chat Toggle Button */}
-      <div className="fixed bottom-4 right-4 z-50">
+      <div 
+        className={cn(
+          "fixed bottom-4 right-4 z-50 transition-opacity duration-500",
+          (isIconVisible || isOpen) ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
         <Button
           onClick={() => setIsOpen(!isOpen)}
           size="icon"

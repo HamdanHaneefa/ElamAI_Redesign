@@ -1,33 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import blogImage1 from '../assets/blog_ai_1.png';
+import blogImage2 from '../assets/blog_ai_2.png';
+import blogImage3 from '../assets/blog_ai_3.png';
+
 const blogPosts = [
         {
                 id: 1,
-                title: 'How Strategic Consulting is Transforming Modern Business',
+                title: 'The Rise of AI Agents in Enterprise Software',
                 date: 'Sep 1, 2025',
-                image:
-                        'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=600&q=80',
+                image: blogImage1,
                 summary:
-                        'Explore the real-world impact of workflow optimization on productivity, customer experience, and business growth across industries.',
+                        'Explore how autonomous AI agents are revolutionizing enterprise workflows by handling complex multi-step tasks.',
         },
         {
                 id: 2,
-                title: '5 Ways to Automate Your Business Workflows',
+                title: 'Designing the Perfect Agentic Workflow',
                 date: 'Aug 18, 2025',
-                image:
-                        'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&w=600&q=80',
+                image: blogImage2,
                 summary:
-                        'Discover practical strategies to streamline your operations and save time using modern automation tools.',
+                        'Discover practical strategies to design scalable, intelligent workflows that integrate seamlessly with your existing tools.',
         },
         {
                 id: 3,
-                title: 'The Future of Customer Support: Scalable Solutions',
+                title: 'Optimizing LLMs for Global Search Discovery',
                 date: 'Jul 30, 2025',
-                image:
-                        'https://images.pexels.com/photos/1181353/pexels-photo-1181353.jpeg?auto=compress&w=600&q=80',
+                image: blogImage3,
                 summary:
-                        'See how scalable operations are revolutionizing customer support, enabling fast responses and personalized service.',
+                        'Learn how to optimize your business data and content for discoverability across top AI search engines like ChatGPT and Gemini.',
         },
 ];
 

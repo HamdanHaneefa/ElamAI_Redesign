@@ -312,7 +312,7 @@ const Contact = () => {
               className={`inline-flex items-center space-x-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                 isSubmitting 
                   ? 'bg-white/50 text-black/50 cursor-not-allowed' 
-                  : 'bg-white text-black hover:bg-white/90'
+                  : 'bg-white text-black hover:bg-white/90 cursor-pointer'
               }`}
               whileHover={!isSubmitting ? { scale: 1.02 } : {}}
               whileTap={!isSubmitting ? { scale: 0.98 } : {}}
@@ -324,43 +324,7 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      {/* CTA Section */}
-      <motion.div
-        className="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-200 text-center"
-        variants={itemVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
-          Ready to Get Started?
-        </h2>
-        <p className="text-gray-700 text-lg font-light mb-8 max-w-2xl mx-auto">
-          Join thousands of businesses already transforming their operations with AI automation.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/platform/ai-agent-platform">
-            <motion.button
-              className="inline-flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-xl font-medium hover:bg-white/90 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Explore Platform</span>
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
-          <Link to="/solutions/enterprise">
-            <motion.button
-              className="inline-flex items-center space-x-3 bg-gray-100 hover:bg-gray-200 text-gray-900 px-8 py-4 rounded-xl font-medium border border-gray-200 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>View Solutions</span>
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
-        </div>
-      </motion.div>
+
     </PageLayout>
   );
 };

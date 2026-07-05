@@ -102,12 +102,7 @@ const Footer = () => {
             </motion.a>
           ))}
         </div>
-        <p className="text-gray-600 text-base font-light mb-2">© 2025 Elam AI. All rights reserved.</p>
-        <div className="flex items-center justify-center gap-6 text-sm mt-2">
-          <a href="#" className="text-gray-500 hover:text-gray-700 font-light transition-colors duration-200">Terms</a>
-          <a href="#" className="text-gray-500 hover:text-gray-700 font-light transition-colors duration-200">Privacy</a>
-          <a href="#" className="text-gray-500 hover:text-gray-700 font-light transition-colors duration-200">Cookies</a>
-        </div>
+
       </div>
     </footer>
   );

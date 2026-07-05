@@ -73,7 +73,7 @@ const TitleUpdater = () => {
         break;
       
       // About pages
-      case "/about/company":
+      case "/company":
         pageTitle = "About Our Company | Elam AI";
         break;
       case "/about/team":
@@ -82,7 +82,7 @@ const TitleUpdater = () => {
       case "/about/careers":
         pageTitle = "Careers | Elam AI";
         break;
-      case "/about/contact":
+      case "/contact":
         pageTitle = "Contact Us | Elam AI";
         break;
       
