@@ -9,7 +9,7 @@ const blogPosts = [
         {
                 id: 1,
                 title: 'The Rise of AI Agents in Enterprise Software',
-                date: 'Sep 1, 2025',
+                date: 'Jul 1, 2026',
                 image: blogImage1,
                 summary:
                         'Explore how autonomous AI agents are revolutionizing enterprise workflows by handling complex multi-step tasks.',
@@ -17,7 +17,7 @@ const blogPosts = [
         {
                 id: 2,
                 title: 'Designing the Perfect Agentic Workflow',
-                date: 'Aug 18, 2025',
+                date: 'Jun 18, 2026',
                 image: blogImage2,
                 summary:
                         'Discover practical strategies to design scalable, intelligent workflows that integrate seamlessly with your existing tools.',
@@ -25,7 +25,7 @@ const blogPosts = [
         {
                 id: 3,
                 title: 'Optimizing LLMs for Global Search Discovery',
-                date: 'Jul 30, 2025',
+                date: 'May 30, 2026',
                 image: blogImage3,
                 summary:
                         'Learn how to optimize your business data and content for discoverability across top AI search engines like ChatGPT and Gemini.',

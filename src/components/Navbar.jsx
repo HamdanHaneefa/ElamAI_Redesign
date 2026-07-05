@@ -20,7 +20,7 @@ import {
   ArrowRight,
   Zap
 } from 'lucide-react';
-import Logo from '../assets/Logo.png'
+import Logo from '../assets/Logo_transparent.png'
 
 const Navbar = () => {
   // Keep only necessary states
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <img
                   src={Logo}
                   alt="Elam Logo"
-                  className="h-10 w-auto sm:h-12 bg-white rounded px-2 py-1"
+                  className="h-10 w-auto sm:h-12"
                   style={{ maxHeight: 48 }}
                 />
               </Link>
@@ -243,7 +243,7 @@ const Navbar = () => {
                   <img
                     src={Logo}
                     alt="Elam Logo"
-                    className="h-10 w-auto bg-white rounded px-2 py-1"
+                    className="h-10 w-auto"
                     style={{ maxHeight: 40 }}
                   />
                 </Link>
